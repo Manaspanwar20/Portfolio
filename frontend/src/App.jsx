@@ -63,6 +63,7 @@ function App() {
   const videoSrc = myvideo;
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
   // Scroll Progress Bar
@@ -180,7 +181,7 @@ function App() {
       <div className="bg-grid" />
 
       <motion.nav
-        className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+        className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -192,14 +193,45 @@ function App() {
           >
             PORTFOLIO.
           </motion.div>
+
           <ul className="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+
+          <button 
+            className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="mobile-menu"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          >
+            <ul className="mobile-nav-links">
+              <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
+              <li><a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a></li>
+              <li><a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a></li>
+              <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main>
         {/* Hero Section */}
