@@ -461,7 +461,7 @@ function App() {
               viewport={{ once: true }}
             >
               <motion.a
-                href="mailto:[EMAIL_ADDRESS]"
+                href="mailto:[manaspanwar211@gmail.com]"
                 className="contact-item"
                 variants={fadeInVariant}
                 whileHover={{ y: -10, scale: 1.05 }}
