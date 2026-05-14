@@ -138,28 +138,12 @@ function App() {
 
   const projects = [
     {
-      title: "Interactive E-Commerce",
-      description: "A full-stack online store with seamless cart management and secure checkout.",
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "",
-      tech: ["React", "Node.js", "Stripe", "MongoDB"]
-    },
-    {
       title: "Twin - Study together",
       description: "A platform for students to study efficiently with the help of AI",
       github: "https://github.com/Manaspanwar20/Twin-Study-with-ai-",
       live: "https://twin-study-with-ai.vercel.app/",
       image: twinproject,
       tech: ["React", "GeminiAI", "MongoDB", "Express"]
-    },
-    {
-      title: "Portfolio Masterpiece",
-      description: "The very website you are looking at! Built with speed and modern aesthetics in mind.",
-      github: "https://github.com",
-      live: "https://example.com",
-      image: "",
-      tech: ["React", "Framer Motion", "Vite"]
     }
   ];
 
@@ -201,8 +185,8 @@ function App() {
             <li><a href="#contact">Contact</a></li>
           </ul>
 
-          <button 
-            className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} 
+          <button
+            className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -216,7 +200,7 @@ function App() {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             className="mobile-menu"
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
@@ -262,7 +246,7 @@ function App() {
               transition={{ delay: 1, duration: 0.8 }}
             >
               <a href="#projects" className="cta-button primary">View Projects</a>
-              <a href="https://drive.google.com/your-resume-link" target="_blank" rel="noopener noreferrer" className="cta-button secondary">Resume</a>
+              <a href="https://docs.google.com/document/d/1eEltM8GilB0HfIk-bPB0NjNUU07MW3cbjcmszDHNT7M/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="cta-button secondary">Resume</a>
               <a href="#contact" className="cta-button outline">Contact Me</a>
             </motion.div>
           </div>
@@ -303,7 +287,7 @@ function App() {
           >
             My Skills
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="section-subtitle"
             variants={fadeInVariant}
             initial="hidden"
@@ -329,7 +313,7 @@ function App() {
               >
                 {category.icon}
                 <h3>{category.title}</h3>
-                <motion.div 
+                <motion.div
                   className="skills-grid"
                   variants={staggerContainer}
                 >
@@ -358,7 +342,7 @@ function App() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            Featured Projects
+            Featured Project
           </motion.h2>
           <motion.div
             className="projects-grid"
